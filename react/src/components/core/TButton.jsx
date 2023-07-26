@@ -10,6 +10,7 @@ export default function TButton({
   onClick = () => {},
   children,
 }) {
+  console.log("this is children", children);
   let classes = [
     "flex",
     "whitespace-nowrap",
@@ -53,9 +54,11 @@ export default function TButton({
       case "green":
         classes = [
           ...classes,
-          "text-green-500",
+          "text-white",
+          "bg-green-500",
           "hover:bg-green-600",
           "focus:ring-green-400",
+          "shadow-sm",
         ];
         break;
     }
@@ -77,16 +80,17 @@ export default function TButton({
   }
   return (
     <>
-      {href && (
-        <a href="{href}" className={classes.join(" ")} target={target}>
-          {children}
-        </a>
-      )}
       {to && (
         <Link to={to} className={classes.join(" ")}>
           {children}
         </Link>
       )}
+      {href && (
+        <a href="{href}" className={classes.join(" ")} target={target}>
+          {children}
+        </a>
+      )}
+
       {!to && !href && (
         <button onClick={onClick} className={classes.join(" ")}>
           {children}
