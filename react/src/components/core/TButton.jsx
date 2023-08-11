@@ -10,7 +10,6 @@ export default function TButton({
   onClick = () => {},
   children,
 }) {
-  console.log("this is children", children);
   let classes = [
     "flex",
     "whitespace-nowrap",
